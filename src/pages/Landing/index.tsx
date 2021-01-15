@@ -5,6 +5,7 @@ import styles from './styles';
 import landingImg from '../../assets/images/landing.png';
 import studyIcon from '../../assets/images/icons/study.png';
 import giveClassesIcon from '../../assets/images/icons/give-classes.png';
+import heartIcon from '../../assets/images/icons/heart.png';
 
 export default function Landing() {
     return (
@@ -26,6 +27,11 @@ export default function Landing() {
                     <Text style={styles.buttonText}>Dar Aulas</Text>
                 </TouchableOpacity>
             </View>
+
+            <Text style={styles.totalConnections}>
+                total de 285 conexões {' '}
+                <Image source={heartIcon} />
+            </Text>
 
         </View>
 
