@@ -40,6 +40,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginTop: 4,
     },
+    bio: {
+        marginHorizontal: 24,
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 16,
+        lineHeight: 28,
+        color: '#6a6180',
+    },
 });
 
 export default styles;
