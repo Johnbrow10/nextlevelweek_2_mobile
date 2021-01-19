@@ -57,7 +57,9 @@ export default function TeacherList() {
                                 ></TextInput>
                             </View>
                         </View>
-
+                        <RectButton style={styles.submitButton}>
+                            <Text style={styles.submitButtonText}> Filtrar </Text>
+                        </RectButton>
                     </View>
                 )}
             </PageHeader>
