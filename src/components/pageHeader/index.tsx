@@ -13,7 +13,7 @@ interface PageHeaderProps {
 
 
 
- const PageHeader: React.FC<PageHeaderProps> =({title}) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title, children }) => {
     const { navigate } = useNavigation();
 
     function handleGoBack() {
@@ -31,6 +31,9 @@ interface PageHeaderProps {
             </View>
 
             <Text style={styles.title}>{title}</Text>
+
+            {children}
+
         </View>
     )
 }
