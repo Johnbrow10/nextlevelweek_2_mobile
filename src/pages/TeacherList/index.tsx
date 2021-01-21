@@ -6,11 +6,13 @@ import { Feather } from '@expo/vector-icons';
 import PageHeader from '../../components/pageHeader';
 import TeacherItem from '../../components/TeacherItem';
 import styles from './styles';
+import api from '../../services/api';
 
 
 export default function TeacherList() {
 
     const [isFilterVisible, setIsFilterVisible] = useState(false);
+    const [teachers, setTeachers] = useState([]);
     const [subject, setSubject] = useState('');
     const [time, setTime] = useState('');
     const [week_day, setWeekDay] = useState('');
@@ -19,12 +21,17 @@ export default function TeacherList() {
         setIsFilterVisible(!isFilterVisible);
     }
 
-    function handleFiltersSubmit() {
-        console.log({
-            subject,
-            week_day,
-            time,
-        })
+    async function handleFiltersSubmit() {
+        const response = await api.get('classes', {
+            params: {
+                subject,
+                week_day,
+                time,
+            }
+        });
+
+        console.log(response.data)
+        setTeachers(response.data);
     }
 
     return (
