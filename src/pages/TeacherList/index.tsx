@@ -11,9 +11,20 @@ import styles from './styles';
 export default function TeacherList() {
 
     const [isFilterVisible, setIsFilterVisible] = useState(false);
+    const [subject, setSubject] = useState('');
+    const [time, setTime] = useState('');
+    const [week_day, setWeekDay] = useState('');
 
     function handleToogleFiltersVisible() {
         setIsFilterVisible(!isFilterVisible);
+    }
+
+    function handleFiltersSubmit() {
+        console.log({
+            subject,
+            week_day,
+            time,
+        })
     }
 
     return (
@@ -33,6 +44,8 @@ export default function TeacherList() {
 
                         <TextInput
                             style={styles.input}
+                            value={subject}
+                            onChangeText={text => setSubject(text)}
                             placeholderTextColor="#c1bccc"
                             placeholder="Qual a Matéria?"
                         ></TextInput>
@@ -43,6 +56,8 @@ export default function TeacherList() {
 
                                 <TextInput
                                     style={styles.input}
+                                    value={week_day}
+                                    onChangeText={text => setWeekDay(text)}
                                     placeholderTextColor="#c1bccc"
                                     placeholder="Qual o dia?"
                                 ></TextInput>
@@ -52,12 +67,14 @@ export default function TeacherList() {
 
                                 <TextInput
                                     style={styles.input}
+                                    value={time}
+                                    onChangeText={text => setTime(text)}
                                     placeholderTextColor="#c1bccc"
                                     placeholder="Qual Horário?"
                                 ></TextInput>
                             </View>
                         </View>
-                        <RectButton style={styles.submitButton}>
+                        <RectButton style={styles.submitButton} onPress={handleFiltersSubmit}>
                             <Text style={styles.submitButtonText}> Filtrar </Text>
                         </RectButton>
                     </View>
