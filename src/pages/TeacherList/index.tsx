@@ -4,7 +4,7 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 
 import PageHeader from '../../components/pageHeader';
-import TeacherItem from '../../components/TeacherItem';
+import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import styles from './styles';
 import api from '../../services/api';
 
@@ -30,7 +30,7 @@ export default function TeacherList() {
             }
         });
 
-        console.log(response.data)
+        setIsFilterVisible(false);
         setTeachers(response.data);
     }
 
@@ -94,11 +94,13 @@ export default function TeacherList() {
                     paddingBottom: 16,
                 }}
             >
-                <TeacherItem />
-                <TeacherItem />
-                <TeacherItem />
-                <TeacherItem />
-                <TeacherItem />
+
+                {teachers.map((teacher: Teacher) => {
+                    return <TeacherItem key={teacher.id} teacher={teacher} />
+                })}
+
+
+
             </ScrollView>
         </View>
     )
